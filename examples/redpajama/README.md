@@ -1,19 +1,19 @@
-# gglm Support for RedPajama Model
+# ggml support for RedPajama model
 
-## Ackonwledgement 
+## Acknowledgement 
 
-We highly appreciate the great effort from the fork of [gptneox.cpp](https://github.com/byroneverson/gptneox.cpp). Our support of the RedPajama Model is mainly based on this implementation. We extend the model configure and fixed a bug when setting use_parallel_residual flag to False in their original implementation. We also extend the chat model for RedPajama.
+We highly appreciate the great effort from the fork of [gptneox.cpp](https://github.com/byroneverson/gptneox.cpp). Our support of the RedPajama model is mainly based on this implementation. We extend the model configure and fixed a bug when setting use_parallel_residual flag to false in their original implementation. We also extend the chat model for RedPajama.
 
 ## Usage:
 
-### RedPajama Chat model:
+### RedPajama chat model:
 
 - Make the code:
 
         make redpajama-chat quantize-gptneox
 
 
-- Prepare the RedPajama model (f16 and q4_0) for gglm:
+- Prepare the RedPajama model (f16 and q4_0) for ggml:
 
         bash ./examples/redpajama/scripts/install-RedPajama-INCITE-Chat-3B-v1.sh
 
@@ -55,13 +55,13 @@ We highly appreciate the great effort from the fork of [gptneox.cpp](https://git
         --repeat_penalty 1.1 \
         --seed 0
 
-- Run other quantized version of RedPajama Chat model (Make sure you get the f16 model prepared before you run this):
+- Run other quantized version of RedPajama chat model (Make sure you get the f16 model prepared before you run this):
 
   - Make the code to quantize the model if you have not:
 
         make quantize-gptneox
 
-  - Generate the quantized model, the supported types include: q4_0, q4_1, q4_2, q5_0, q5_1, and q8_0. For example, to run q4_1, you need to do the following convertion:
+  - Generate the quantized model, the supported types include: q4_0, q4_1, q4_2, q5_0, q5_1, and q8_0. For example, to run q4_1, you need to do the following conversion:
 
         python ./examples/redpajama/scripts/quantize-gptneox.py ./examples/redpajama/models/pythia/ggml-RedPajama-INCITE-Chat-3B-v1-f16.bin --quantize-output-type q4_1
 
@@ -91,7 +91,7 @@ We highly appreciate the great effort from the fork of [gptneox.cpp](https://git
         make redpajama quantize-gptneox
 
 
-- Prepare the RedPajama Base/Instruct model (f16 and q4_0) for gglm:
+- Prepare the RedPajama Base/Instruct model (f16 and q4_0) for ggml:
 
         bash ./examples/redpajama/scripts/install-RedPajama-INCITE-Base-3B-v1.sh
 
@@ -99,7 +99,7 @@ We highly appreciate the great effort from the fork of [gptneox.cpp](https://git
 
         bash ./examples/redpajama/scripts/install-RedPajama-INCITE-Instruct-3B-v1.sh
 
-- Run other quantize version of RedPajama Base/Instruct model (Make sure you get the f16 model prepared before you run this). Then you can generate the quantized model, the supported types include: q4_0, q4_1, q4_2, q5_0, q5_1, and q8_0. For example, to run q4_1, you need to do the following convertion, e.g for RedPajama-Base q8_0:
+- Run other quantize version of RedPajama Base/Instruct model (Make sure you get the f16 model prepared before you run this). Then you can generate the quantized model.  The supported types include: q4_0, q4_1, q4_2, q5_0, q5_1, and q8_0. For example, to run q4_1, you need to do the following conversion, e.g for RedPajama-Base q8_0:
 
         python ./examples/redpajama/scripts/quantize-gptneox.py ./examples/redpajama/models/pythia/ggml-RedPajama-INCITE-Base-3B-v1-f16.bin --quantize-output-type q8_0
 

@@ -13,7 +13,6 @@ WORKDIR /root/redpajama.cpp
 RUN make redpajama-chat quantize-gptneox
 RUN bash ./examples/redpajama/scripts/install-RedPajama-INCITE-Chat-3B-v1.sh
 RUN pip install -r requirements.txt
-RUN python convert.py ./examples/redpajama/models/pythia/ggml-RedPajama-INCITE-Chat-3B-v1-f16.bin
 
 CMD ["./redpajama-chat", "-m", "./examples/redpajama/models/pythia/ggml-RedPajama-INCITE-Chat-3B-v1-f16.bin", \
 "-c", "2048", "-b", "128", "-n", "1", "-t", "8", "--instruct", "--color", "--top_k", "30", "--top_p", "0.95", "--temp", "0.8", \

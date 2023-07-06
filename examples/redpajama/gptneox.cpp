@@ -96,7 +96,7 @@ static const std::map<e_model, size_t> & MEM_REQ_EVAL()
 {
     static std::map<e_model, size_t> _MEM_REQ_EVAL = {
         { MODEL_3B,   512ull * MiB },
-        { MODEL_7B,   768ull * MiB },
+        { MODEL_7B,   794ull * MiB },
         { MODEL_12B, 1024ull * MiB },
         { MODEL_20B, 1024ull * MiB },
     };
